@@ -1,0 +1,137 @@
+2022-07-04 17:55:24.156  INFO 17284 --- [restartedMain] bjtu.monitor.MonitorApplication          : Starting MonitorApplication using Java 11.0.11 on LAPTOP-U8055N0R with PID 17284 (C:\Users\FUBOFENG\IdeaProjects\Monitor\target\classes started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 17:55:24.157  INFO 17284 --- [restartedMain] bjtu.monitor.MonitorApplication          : The following 1 profile is active: "dev"
+2022-07-04 17:55:24.195  INFO 17284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2022-07-04 17:55:24.196  INFO 17284 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2022-07-04 17:55:24.843  INFO 17284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 17:55:24.845  INFO 17284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 17:55:24.866  INFO 17284 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2022-07-04 17:55:24.994  WARN 17284 --- [restartedMain] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 17:55:25.420  INFO 17284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2022-07-04 17:55:25.429  INFO 17284 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2022-07-04 17:55:25.429  INFO 17284 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.62]
+2022-07-04 17:55:25.523  INFO 17284 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2022-07-04 17:55:25.524  INFO 17284 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1328 ms
+2022-07-04 17:55:25.802  WARN 17284 --- [restartedMain] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 17:55:26.361  INFO 17284 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2022-07-04 17:55:26.391  INFO 17284 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2022-07-04 17:55:26.404  INFO 17284 --- [restartedMain] bjtu.monitor.MonitorApplication          : Started MonitorApplication in 2.727 seconds (JVM running for 4.467)
+2022-07-04 18:02:09.858  INFO 3064 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 3064 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:02:09.860  INFO 3064 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:02:10.817  INFO 3064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:02:10.824  INFO 3064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:02:10.852  INFO 3064 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:02:11.034  WARN 3064 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:02:12.593  WARN 3064 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:02:13.911  INFO 3064 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.717 seconds (JVM running for 5.957)
+2022-07-04 18:02:41.586  INFO 17508 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 17508 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:02:41.588  INFO 17508 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:02:42.474  INFO 17508 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:02:42.479  INFO 17508 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:02:42.507  INFO 17508 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:02:42.684  WARN 17508 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:02:44.165  WARN 17508 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:02:45.457  INFO 17508 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.504 seconds (JVM running for 5.724)
+2022-07-04 18:03:16.144  INFO 17956 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 17956 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:03:16.146  INFO 17956 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:03:16.995  INFO 17956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:03:17.000  INFO 17956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:03:17.027  INFO 17956 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:03:17.201  WARN 17956 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:03:18.715  WARN 17956 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:03:19.938  INFO 17956 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.426 seconds (JVM running for 5.694)
+2022-07-04 18:04:36.657  INFO 10456 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 10456 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:04:36.660  INFO 10456 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:04:37.505  INFO 10456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:04:37.510  INFO 10456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:04:37.539  INFO 10456 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:04:37.713  WARN 10456 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:04:39.156  WARN 10456 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:04:40.427  INFO 10456 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.388 seconds (JVM running for 5.843)
+2022-07-04 18:06:54.639  INFO 11696 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 11696 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:06:54.641  INFO 11696 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:06:55.543  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:06:55.547  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:06:55.576  INFO 11696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:06:55.768  WARN 11696 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:06:57.396  WARN 11696 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:06:58.601  INFO 11696 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.584 seconds (JVM running for 5.816)
+2022-07-04 18:07:15.038  INFO 12704 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 12704 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:07:15.041  INFO 12704 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:07:15.917  INFO 12704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:07:15.922  INFO 12704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:07:15.949  INFO 12704 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:07:16.114  WARN 12704 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:07:17.537  WARN 12704 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:07:18.769  INFO 12704 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.358 seconds (JVM running for 5.56)
+2022-07-04 18:07:40.953  INFO 21632 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 21632 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:07:40.956  INFO 21632 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:07:41.829  INFO 21632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:07:41.834  INFO 21632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:07:41.862  INFO 21632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:07:42.033  WARN 21632 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:07:43.485  WARN 21632 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:07:44.792  INFO 21632 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.477 seconds (JVM running for 5.75)
+2022-07-04 18:10:41.405  INFO 21724 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 21724 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:10:41.406  INFO 21724 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:10:42.259  INFO 21724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:10:42.266  INFO 21724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:10:42.298  INFO 21724 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:10:42.484  WARN 21724 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:10:43.982  WARN 21724 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:10:45.217  INFO 21724 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.502 seconds (JVM running for 5.803)
+2022-07-04 18:12:36.065  INFO 12980 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 12980 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:12:36.068  INFO 12980 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:12:37.007  INFO 12980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:12:37.012  INFO 12980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:12:37.039  INFO 12980 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:12:37.290  WARN 12980 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:12:38.965  WARN 12980 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:12:40.281  INFO 12980 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.953 seconds (JVM running for 6.229)
+2022-07-04 18:13:06.306  INFO 21304 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 21304 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:13:06.309  INFO 21304 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:13:07.152  INFO 21304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:13:07.156  INFO 21304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:13:07.184  INFO 21304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:13:07.354  WARN 21304 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:13:08.805  WARN 21304 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:13:10.094  INFO 21304 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.418 seconds (JVM running for 5.612)
+2022-07-04 18:14:49.352  INFO 10152 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 10152 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:14:49.354  INFO 10152 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:14:50.226  INFO 10152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:14:50.230  INFO 10152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:14:50.258  INFO 10152 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:14:50.429  WARN 10152 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:14:51.894  WARN 10152 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:14:53.113  INFO 10152 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.408 seconds (JVM running for 5.628)
+2022-07-04 18:15:18.834  INFO 22196 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 22196 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:15:18.836  INFO 22196 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:15:19.715  INFO 22196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:15:19.719  INFO 22196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:15:19.745  INFO 22196 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:15:19.915  WARN 22196 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:15:21.419  WARN 22196 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:15:22.634  INFO 22196 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.461 seconds (JVM running for 5.652)
+2022-07-04 18:15:39.539  INFO 16260 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 16260 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:15:39.541  INFO 16260 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:15:40.417  INFO 16260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:15:40.421  INFO 16260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:15:40.447  INFO 16260 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:15:40.613  WARN 16260 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:15:42.128  WARN 16260 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:15:43.481  INFO 16260 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.559 seconds (JVM running for 5.784)
+2022-07-04 18:16:32.961  INFO 12580 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 12580 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 18:16:32.963  INFO 12580 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 18:16:33.840  INFO 12580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 18:16:33.844  INFO 12580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 18:16:33.868  INFO 12580 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2022-07-04 18:16:34.042  WARN 12580 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 18:16:35.521  WARN 12580 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 18:16:36.844  INFO 12580 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.507 seconds (JVM running for 5.764)
+2022-07-04 19:57:26.743  INFO 22576 --- [main] bjtu.monitor.MonitorApplicationTests     : Starting MonitorApplicationTests using Java 11.0.11 on LAPTOP-U8055N0R with PID 22576 (started by FUBOFENG in C:\Users\FUBOFENG\IdeaProjects\Monitor)
+2022-07-04 19:57:26.745  INFO 22576 --- [main] bjtu.monitor.MonitorApplicationTests     : The following 1 profile is active: "dev"
+2022-07-04 19:57:27.721  INFO 22576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2022-07-04 19:57:27.725  INFO 22576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2022-07-04 19:57:27.753  INFO 22576 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2022-07-04 19:57:27.936  WARN 22576 --- [main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[bjtu.monitor]' package. Please check your configuration.
+2022-07-04 19:57:29.854  WARN 22576 --- [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2022-07-04 19:57:31.116  INFO 22576 --- [main] bjtu.monitor.MonitorApplicationTests     : Started MonitorApplicationTests in 4.992 seconds (JVM running for 6.452)
