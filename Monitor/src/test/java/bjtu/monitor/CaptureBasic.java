@@ -138,6 +138,7 @@ public class CaptureBasic extends JPanel {
 
         System.out.println("Running DetectFace ... ");
         // 从配置文件lbpcascade_frontalface.xml中创建一个人脸识别器，该文件位于opencv安装目录中
+        // 需要将先这个文件地址改为自己电脑安装的opencv包里配置文件lbpcascade_frontalface.xml的位置
         CascadeClassifier faceDetector = new CascadeClassifier("D:\\java\\opencv\\build\\etc\\lbpcascades\\lbpcascade_frontalface.xml");
 
 
