@@ -1,8 +1,4 @@
-/**
- * @Author: 王居三木超
- * @Description: TODO
- * @DateTime: 2021/9/2 17:41
- **/
+
 import org.opencv.videoio.*;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;

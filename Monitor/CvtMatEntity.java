@@ -1,8 +1,4 @@
-/**
- * @Author: 王居三木超
- * @Description: TODO
- * @DateTime: 2021/9/2 19:54
- **/
+
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
