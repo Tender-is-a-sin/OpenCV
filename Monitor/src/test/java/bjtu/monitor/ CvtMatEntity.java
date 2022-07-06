@@ -1,3 +1,4 @@
+package bjtu.monitor;
 
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
