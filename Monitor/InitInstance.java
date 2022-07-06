@@ -61,7 +61,7 @@ public class InitInstance {
             //图形面勾选人脸
             for (Rect re : faveRect.toArray()) {
                     Imgproc.rectangle(img, new Point(re.x, re.y), new Point(re.x + re.width, re.y + re.height), new Scalar(0, 0, 255), 2);
-                imgcompare=new Mat(img,new Rect(re.x,re.y,re.width,re.height));
+                imgcompare=new Mat(gray,new Rect(re.x,re.y,re.width,re.height));
 
             //显示在屏幕
             double res=compare_image(imgcompare,"C:\\Users\\86137\\Desktop\\test.png");
