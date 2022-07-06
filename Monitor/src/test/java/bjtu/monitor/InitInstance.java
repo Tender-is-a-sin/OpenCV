@@ -1,3 +1,4 @@
+package bjtu.monitor;
 
 import org.opencv.videoio.*;
 import org.opencv.core.*;
