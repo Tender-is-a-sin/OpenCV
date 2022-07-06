@@ -2,7 +2,7 @@
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
-public class CvtMatEntity {
+public class  CvtMatEntity{
     //原图Mat
     public Mat img;
     //灰度图Mat
