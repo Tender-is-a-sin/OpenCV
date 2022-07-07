@@ -83,7 +83,7 @@
 		
             </form>
             
-            <a href="Register.html" style="color:#fff; text-decoration:none "><button type="submit">Register</button></a>
+            <a href="toRegister" style="color:#fff; text-decoration:none "><button type="submit">Register</button></a>
             <div class="connect">
 
                 <p>入侵检测系统</p>
@@ -163,7 +163,12 @@
                                 })
                                     .then(function (value) {
                                         if(value.data === 200) {
-                                            window.location.href = "toObfuscation";
+                                            if(username=='admain'){
+                                                window.location.href = "toAdmain";
+                                            }else{
+                                                window.location.href = "toObfuscation";
+                                            }
+
                                         }else{
                                             alert("用户名或密码错误");
                                         }
