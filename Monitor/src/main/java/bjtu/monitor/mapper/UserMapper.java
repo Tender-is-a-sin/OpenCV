@@ -5,6 +5,8 @@ import bjtu.monitor.pojo.table.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
+@Repository
 public interface UserMapper {
     int countByExample(UserExample example);
 
