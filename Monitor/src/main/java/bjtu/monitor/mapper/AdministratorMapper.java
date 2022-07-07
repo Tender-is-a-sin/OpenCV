@@ -5,6 +5,8 @@ import bjtu.monitor.pojo.table.AdministratorExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
+@Repository
 public interface AdministratorMapper {
     int countByExample(AdministratorExample example);
 
