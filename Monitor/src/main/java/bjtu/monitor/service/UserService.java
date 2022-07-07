@@ -16,7 +16,6 @@ public interface UserService {
     int modifyInfo(int ID,User user);
     int modifyPassword(int ID,String pass);
     int AssignRights(int rights,int id);   // （root级管理员）将权限分配给其他管理员
-    User getUserByUserName(String name);    
     /*注册部分*/
 
     /*
@@ -33,18 +32,18 @@ public interface UserService {
     User loginUser(String username,String password);
 
     /*找回密码部分
-     * xzx
+     * 
      * */
     String retrievePassword(String username); //根据用户名查询密码并返回，调用此方法的前提是验证码输入正确
 
     /*通用部分*/
-    List<User> listUser(int pn); //获取数据库中的所有用户 fbf
+    List<User> listUser(int pn); //获取数据库中的所有用户 
     List<User> listUser(); //获取数据库中的所有用户
-    List<User> listUserSelective(User user,int pn); //xzx
-    User getUserById(Integer id); //根据id获取用户 fbf
-    User getUserByUserName(String username); //xzx
-    boolean ifExistUser(String username); //wj
-    boolean ifExistUser(Integer id); //wj
+    List<User> listUserSelective(User user,int pn); //
+    User getUserById(Integer id); //
+    User getUserByUserName(String username); //
+    boolean ifExistUser(String username); //
+    boolean ifExistUser(Integer id); //
     int deleteUser(Integer userID);
 
 
