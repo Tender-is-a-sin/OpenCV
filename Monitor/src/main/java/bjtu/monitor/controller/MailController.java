@@ -44,11 +44,11 @@ public class MailController {
 //        }
 //    }
 
-    @GetMapping("sendcode/{email}/{type}")
+    @GetMapping("/register")
     @ResponseBody
-    public String sendCode(@PathVariable String email,@PathVariable int type){
-        int result = mailService.sendCode(email, type);
-        return String.valueOf(result);
+    public int sendCode(@RequestParam("email")String email,@RequestParam("type")int type){
+
+        return mailService.sendCode(email, type);
     }
 
     @GetMapping("findcode/{email}/{type}")
