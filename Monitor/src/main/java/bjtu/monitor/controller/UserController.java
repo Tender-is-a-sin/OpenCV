@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Date;
@@ -20,12 +21,27 @@ public class UserController {
     UserService userService;
     @Autowired
     MailService mailService;
+
     @GetMapping("/login/{username}/{password}")
     @ResponseBody
     public int loginUser(@PathVariable("username")String username,
-                          @PathVariable("password")String password,
-                          HttpSession session, HttpServletResponse response){
-        return 200;
+                         @PathVariable("password")String password,
+                         HttpSession session, HttpServletResponse response){
+
+
+        User user = userService.loginUser(username,password);
+        if(user==null){
+            return FAIL;  //登录失败返回0
+        }else {
+//            List<Rights> rights = rightsService.listRights(user.getUserid());
+//            user.setUserRights(rights);
+            session.setAttribute("nowUser", user);
+            Cookie cookie = new Cookie("id", String.valueOf(user.getUserid()));
+            cookie.setPath("/");
+            response.addCookie(cookie);
+            System.out.println("登录 Cookie saved");
+        }
+        return user.getRights();  // 登录成功返回权限
     }
     @PostMapping("/register")
     @ResponseBody
