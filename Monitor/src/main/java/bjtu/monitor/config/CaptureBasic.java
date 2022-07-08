@@ -1,4 +1,4 @@
-package bjtu.monitor;
+package bjtu.monitor.config;
 
 import java.awt.Graphics;
 import java.awt.event.MouseAdapter;
@@ -17,7 +17,6 @@ import org.opencv.core.Point;
 import org.opencv.core.Rect;
 import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
-import org.opencv.ml.SVM;
 import org.opencv.objdetect.CascadeClassifier;
 import org.opencv.objdetect.HOGDescriptor;
 import org.opencv.videoio.VideoCapture;

@@ -1,13 +1,18 @@
 package bjtu.monitor.service.Impl;
 
 import bjtu.monitor.service.MailService;
+import bjtu.monitor.service.UserService;
+import bjtu.monitor.utils.Global;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * @ClassName MailServiceImpl
@@ -18,39 +23,88 @@ import org.springframework.util.StringUtils;
 @Service
 public class MailServiceImpl implements MailService {
 
+    @Autowired
+    private RedisTemplate redisTemplate;
+
+    @Autowired
+    UserService userService;
     @Value("${spring.mail.username}")
     private String UserName;//获得配置文件中的username
 
     @Autowired
     private JavaMailSender mailSender;//注入发送邮件的bean
 
-    @Override
-    public boolean sendMail(String email, String code) {
-        //判断邮箱是否为空
-        if (StringUtils.isEmpty(email)) {
-            return false;
-        }
-        //标题
-        String subject = "邮箱验证码";
-        //正文内容
-        String text = "你的验证码为" + code + "，有效时间为5分钟，请尽快使用并且不要告诉别人。";
 
-        SimpleMailMessage msg = new SimpleMailMessage();
-        //发送邮件的邮箱
-        msg.setFrom(UserName);
-        //发送到哪(邮箱)
-        msg.setTo(email);
-        //邮箱标题
-        msg.setSubject(subject);
-        //邮箱文本
-        msg.setText(text);
-        try {
-            mailSender.send(msg);
-            System.out.println("msg=====>" + msg);
-        } catch (MailException ex) {
-            ex.getMessage();
+    @Override
+    public String getCode(String email, int type) {
+        String key = email + "_";
+        if (type == Global.REGISTER){
+            key += "register_code";
+        }else {
+            key += "find_code";
         }
-        return true;
+        Object result = redisTemplate.opsForValue().get(key);
+        if (result == null){
+            return "";
+        }
+        return (String) result;
+    }
+
+    @Override
+    public int sendCodeForFind(String username) {
+        //先获取用户名对应的邮箱
+        String email = userService.getUserByUserName(username).getEmail();
+        long codeL = System.nanoTime();
+        //生成6位验证码
+        String codeStr = Long.toString(codeL);
+        codeStr = codeStr.substring(codeStr.length() - 8, codeStr.length() - 2);
+        //存入redis
+        String key_code = username + "_find_code"; //kevin_find_code
+        redisTemplate.opsForValue().set(key_code,codeStr,60*5, TimeUnit.SECONDS);//验证码有效时间是5分钟
+        //发送到用户邮箱
+        String content = "欢迎使用仓库入侵检测系统找回密码,您的验证码是:"+ codeStr +",有效时间5分钟";
+        sendSimpleMail(email,"找回密码验证码",content);
+        return Global.SUCCESS;
+    }
+
+
+    @Override
+    public void sendSimpleMail(String to, String subject, String content) {
+        SimpleMailMessage message = new SimpleMailMessage();
+        //发件人
+        message.setFrom(UserName);
+        //收件人
+        message.setTo(to);
+        //邮件主题
+        message.setSubject(subject);
+        //邮件内容
+        message.setText(content);
+        //发送邮件
+        mailSender.send(message);
+    }
+    public int sendCodeREGISTER(String email){
+        long codeL = System.nanoTime();
+        //先生成6位验证码
+        String codeStr = Long.toString(codeL);
+        codeStr = codeStr.substring(codeStr.length() - 8, codeStr.length() - 2);
+        //存入redis
+        String key_code = email + "_register_code";
+        String key_times = email + "_register_times";
+        redisTemplate.opsForValue().set(key_code,codeStr,60*5,TimeUnit.SECONDS);//验证码有效时间是5分钟
+//        redisTemplate.opsForValue().set(key_times,String.valueOf(times+1),1, TimeUnit.HOURS);//更新最近验证码发送时间
+        //发送到用户邮箱
+        String content = "欢迎使用仓库入侵检测系统注册用户,验证码是:"+ codeStr +",有效时间5分钟";
+        sendSimpleMail(email,"注册验证码",content);
+        return Global.SUCCESS;
+    }
+    @Override
+    public int sendCode( String email,int type) {
+        if (type == Global.REGISTER){
+            return sendCodeREGISTER(email);
+        }else if (type == Global.FIND){
+            return sendCodeForFind(email);
+        }
+        return Global.FAIL;
     }
 }
 
