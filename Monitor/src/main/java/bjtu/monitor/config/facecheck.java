@@ -11,7 +11,7 @@ import static bjtu.monitor.utils.Global.facexmlAbsPath;
 
 
 public class facecheck {
-    private static boolean  flag=false;
+    private  boolean  flag=false;
     private static int facenumber=3;
 
 
