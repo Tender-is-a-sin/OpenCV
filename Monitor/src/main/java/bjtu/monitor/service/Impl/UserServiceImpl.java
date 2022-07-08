@@ -4,6 +4,7 @@ import bjtu.monitor.mapper.UserMapper;
 import bjtu.monitor.pojo.table.User;
 import bjtu.monitor.pojo.table.UserExample;
 import bjtu.monitor.service.MailService;
+import bjtu.monitor.service.UserMailService;
 import bjtu.monitor.service.UserService;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-    
+    @Autowired
+    UserMailService userMailService;
+
     @Override
     public int modifyInfo(int ID, User user) {
         UserExample userExample = new UserExample();
@@ -69,10 +72,10 @@ public class UserServiceImpl implements UserService {
             }
 
             // 否则注册为新的用户
-            userMapper.insert(user);
-
+            userMapper.insertSelective(user);
+//            MailServiceImpl mailService = new MailServiceImpl();
             /* 成功后告知对方已成功注册 */
-            new MailServiceImpl().sendSimpleMail(user.getEmail() ,"Register Notice",
+            userMailService.sendSimpleMail(user.getEmail() ,"Register Notice",
                     "Register Notice    "+"Register successfully! Welcome to use our products, if you have any " +
                             "comments, please feel free to feedback, we will actively improve, thank you.");
 
