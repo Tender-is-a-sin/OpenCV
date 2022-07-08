@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @Date 2022/4/18 21:47
  */
 @RestController
-@RequestMapping("monitor/email")
+@RequestMapping("email")
 public class MailController {
     @Autowired
     private MailService mailService;
