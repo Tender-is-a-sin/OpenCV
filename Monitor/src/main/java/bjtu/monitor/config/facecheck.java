@@ -25,7 +25,7 @@ public class facecheck {
         for(int i=0;i<facenumber;i++)
         {
             double res=compare_image(imgcompare,adminface+i+".png");
-            if(res>0.6){
+            if(res>0.7){
                 flag=true;
                 return flag;
             }
