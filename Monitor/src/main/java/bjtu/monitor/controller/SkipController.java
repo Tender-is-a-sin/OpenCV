@@ -34,4 +34,40 @@ public class SkipController {
     public String toReplay(){
         return "html/replay";
     }
+
+    @GetMapping("/toFacesign")
+    public String toFacesign(){
+        return "html/admin/facesign";
+    }
+
+    @GetMapping("/toRealtimemonitor")
+    public String toRealtimemonitor(){
+        return "html/admin/realtimemonitor";
+    }
+    @GetMapping("/toUser_info_jurisdiction")
+    public String toUser_info_jurisdiction(){
+        return "html/admin/user_info_jurisdiction";
+    }
+    @GetMapping("/toAdmin")
+    public String toAdmin(){
+        return "html/admin/statistics";
+    }
+
+    @GetMapping("/toStatistics")
+    public String toStatistics(){
+        return "html/admin/statistics";
+    }
+
+    @GetMapping("/toRecord_admin")
+    public String toRecord_admin(){
+        return "html/admin/record_admin";
+    }
+    @GetMapping("/toReplay_admin")
+    public String toReplay_admin(){
+        return "html/admin/replay_admin";
+    }
+    @GetMapping("/toWhitelist")
+    public String toWhitelist(){
+        return "html/admin/whitelist";
+    }
 }
