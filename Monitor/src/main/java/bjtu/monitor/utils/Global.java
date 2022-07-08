@@ -14,7 +14,8 @@ public class Global {
     public static final int FIND = 0; //找回
     public static final int CODEERROR =5 ;
     public static final String adminface="C:\\Users\\86137\\Desktop\\";
-
+    public static final String savepath="C:\\Users\\86137\\Desktop\\BJTU\\";
+    
 
     //此路径不能有中文
     public static final String facexmlAbsPath="C:\\Users\\86137\\Desktop\\BJTU\\haarcascade_frontalface_alt.xml";
