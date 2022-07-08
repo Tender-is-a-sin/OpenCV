@@ -30,6 +30,7 @@ public class InitInstance {
 
     //此类实现打开视频，识别人脸
     public static void videoDetectorModel() {
+        savePicture savePicture=new savePicture();                
         //打开摄像头
         VideoCapture videoCapture = new VideoCapture(0);
         //判断摄像头是否打开
@@ -67,6 +68,7 @@ public class InitInstance {
                 else {
                     Imgproc.rectangle(img, new Point(re.x, re.y), new Point(re.x + re.width, re.y + re.height), new Scalar(0, 0, 255), 2);
                     Imgproc.putText(img, "warn", new Point(re.x, re.y), 2, 1, new Scalar(0, 0, 255));
+                    savePicture.savePicture(img);
                 }
             }
             HighGui.imshow("人脸识别", img);
