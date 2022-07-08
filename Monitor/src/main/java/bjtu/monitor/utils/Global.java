@@ -12,5 +12,11 @@ public class Global {
     public static final String FAILED = "Operation failed";
     public static final int REGISTER = 1; //注册
     public static final int FIND = 0; //找回
+    public static final int CODEERROR =5 ;
+    public static final String adminface="C:\\Users\\86137\\Desktop\\";
 
+
+    //此路径不能有中文
+    public static final String facexmlAbsPath="C:\\Users\\86137\\Desktop\\BJTU\\haarcascade_frontalface_alt.xml";
+    public static final String dllAbsPath="C:\\Users\\86137\\Desktop\\BJTU\\小学期二\\video-detection-system-master\\Monitor\\src\\main\\resources\\lib.opencv\\opencv_java460.dll";
 }
