@@ -162,8 +162,8 @@
                                     url: "user/login/" + username +"/"+password
                                 })
                                     .then(function (value) {
-                                        if(value.data === 200) {
-                                            if(username=='admin'){
+                                        if(value.data !=0) {
+                                            if(value.data !=100){
                                                 window.location.href = "toAdmin";
                                             }else{
                                                 window.location.href = "toObfuscation";
