@@ -60,9 +60,14 @@
                 </el-header>
                 <!-- 日历 -->
                 <el-main>
-                    <el-calendar v-model="value">
+                    <el-calendar>
+                        <template
+                                slot="dateCell"
+                                slot-scope="{date, data}">
+                            {{ data.day.split('-').slice(1).join('-') }}
+                            <el-button icon="el-icon-search" circle></el-button>
+                        </template>
                     </el-calendar>
-                    </el-table>
                 </el-main>
             </el-container>
         </el-container>
