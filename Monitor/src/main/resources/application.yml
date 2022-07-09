@@ -22,6 +22,18 @@ spring:
         max-active: 20
         max-idle: 5
         min-idle: 0
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      #数据库
+      database: admin
+      #验证库
+      authentication-database: admin
+      #用户（如果MongoDB没有配置授权验证的可以不用写验证信息）
+      username: fbf
+      #密码
+#      password: 123456
   mail:
     host: smtp.qq.com #发送邮件服务器
     username: 1245325661@qq.com  #发送邮件的邮箱地址
