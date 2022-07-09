@@ -62,14 +62,49 @@
                 </el-header>
                 <!-- 记录显示 -->
                 <el-main>
-                    <el-table :data="tableData">
-                        <el-table-column prop="date" label="日期" width="140">
-                        </el-table-column>
-                        <el-table-column prop="name" label="时间" width="120">
-                        </el-table-column>
-                        <el-table-column prop="address" label="摄像头机位">
-                        </el-table-column>
-                    </el-table>
+                    <template>
+                        <el-table :data="tableData" style="width: 100%">
+
+                            <el-table-column label="Id" width="150">
+                                <template slot-scope="scope">
+
+                                    <span style="margin-left: 10px">{{ scope.row.Id }}</span>
+                                </template>
+                            </el-table-column>
+
+
+                            <el-table-column label="日期" width="150">
+                                <template slot-scope="scope">
+                                    <i class="el-icon-time"></i>
+                                    <span style="margin-left: 1px">{{ scope.row.date }}</span>
+                                </template>
+                            </el-table-column>
+
+
+                            <el-table-column label="时间" width="150">
+                                <template slot-scope="scope">
+
+                                    <span style="margin-left: 10px">{{ scope.row.time }}</span>
+                                </template>
+                            </el-table-column>
+
+                            <el-table-column label="摄像头机位">
+                                <template slot-scope="scope">
+
+                                    <span style="margin-left: 10px">{{ scope.row.address }}</span>
+                                </template>
+                            </el-table-column>
+
+
+                            <el-table-column label="操作">
+                                <template slot-scope="scope">
+                                    <el-button size="mini" @click="handleCheck(scope.$index, scope.row)">查看</el-button>
+                                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index)">删除</el-button>
+                                </template>
+                            </el-table-column>
+                        </el-table>
+                    </template>
+
                 </el-main>
                 <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: center;">
                 </el-pagination>
@@ -101,15 +136,72 @@
     new Vue({
         el: '#app',
         data() {
-            const item = {
-                date: '2022-07-07',
-                name: '9：30',
-                address: '1'
-            };
             return {
-                tableData: Array(10).fill(item)
+                tableData: [{
+
+                    Id:1,
+                    date: '2016-05-02',
+                    time: '9:30',
+                    address: 1
+
+                }, {
+                    Id: 2,
+                    date: '2016-05-02',
+                    time: '9:30',
+                    address: 1
+
+
+                }, {
+                    Id: 3,
+                    date: '2016-05-02',
+                    time: '9:30',
+                    address: 1
+
+
+
+                }, {
+                    Id: 4,
+                    date: '2016-05-02',
+                    time: '9:30',
+                    address: 1
+
+
+
+                }]
+            }
+        },
+        methods: {
+
+
+            async handleDelete (index) {
+                // 弹框询问用户是否删除数据
+                const confirmResult = await this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {
+                    confirmButtonText: '确定',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).catch(() => {
+                    this.$message({
+                        type: 'info',
+                        message: '已取消删除'
+                    })
+                })
+
+
+
+                if (confirmResult !== 'confirm') {
+                    return this.$message.info('已取消删除')
+                }else {
+                    this.tableData.splice(index,1);
+                }
+
+            },
+
+
+            handleCheck(index, row) {
+                console.log(index, row);
             }
         }
+
     })
 </script>
 
