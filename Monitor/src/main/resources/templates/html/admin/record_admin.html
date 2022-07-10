@@ -98,8 +98,18 @@
 
                             <el-table-column label="操作">
                                 <template slot-scope="scope">
-                                    <el-button size="mini" @click="handleCheck(scope.$index, scope.row)">查看</el-button>
-                                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index)">删除</el-button>
+
+
+                                    <el-popover placement="bottom" title="入侵截图" width="500" trigger="click"
+                                    >
+                                    <el-image :src="src"></el-image>
+                                    <!-- <el-button >click 激活</el-button> -->
+                                    <el-button slot="reference" size="mini" @click="handleCheck(scope.$index, scope.row)">查看
+                                    </el-button>
+                                </el-popover>
+
+                                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">
+                                        删除</el-button>
                                 </template>
                             </el-table-column>
                         </el-table>
@@ -137,9 +147,11 @@
         el: '#app',
         data() {
             return {
+                src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
+                visible: false,
                 tableData: [{
 
-                    Id:1,
+                    Id: 1,
                     date: '2016-05-02',
                     time: '9:30',
                     address: 1
@@ -173,7 +185,7 @@
         methods: {
 
 
-            async handleDelete (index) {
+            async handleDelete(index) {
                 // 弹框询问用户是否删除数据
                 const confirmResult = await this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {
                     confirmButtonText: '确定',
@@ -190,12 +202,10 @@
 
                 if (confirmResult !== 'confirm') {
                     return this.$message.info('已取消删除')
-                }else {
-                    this.tableData.splice(index,1);
+                } else {
+                    this.tableData.splice(index, 1);
                 }
-
             },
-
 
             handleCheck(index, row) {
                 console.log(index, row);
