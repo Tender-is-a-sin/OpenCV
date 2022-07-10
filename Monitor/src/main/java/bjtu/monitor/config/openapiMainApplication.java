@@ -14,8 +14,8 @@ public class openapiMainApplication {
 //        //位置在opencv安装目录下的sources\\data\\haarcascades\\位置
 //        String facexmlAbsPath = "D:\\java\\opencv\\sources\\data\\haarcascades\\haarcascade_frontalface_alt.xml";
         //必须加载
-        String eyexmlAbsPath="0";
-        InitInstance.init(dllAbsPath, facexmlAbsPath,eyexmlAbsPath);
+//        String eyexmlAbsPath="0";
+        InitInstance.init(dllAbsPath, facexmlAbsPath,ffmpegPath);
         InitInstance.videoDetectorModel();
 
     }
