@@ -21,5 +21,5 @@ public class Global {
     public static final String facexmlAbsPath="C:\\Users\\86137\\Desktop\\BJTU\\haarcascade_frontalface_alt.xml";
     public static final String dllAbsPath="C:\\Users\\86137\\Desktop\\BJTU\\小学期二\\video-detection-system-master\\Monitor\\src\\main\\resources\\lib.opencv\\opencv_java460.dll";
     //需要改成opencv包里的opencv_videoio_ffmpeg460_64.dll文件的绝对路径
-    public static final String ffmpegPath="D:\java\opencv\build\bin\opencv_videoio_ffmpeg460_64.dll"
+    public static final String ffmpegPath="D:\\java\\opencv\\build\\bin\\opencv_videoio_ffmpeg460_64.dll";
 }
