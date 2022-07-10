@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<html>
 
 <head>
   <meta charset="UTF-8">
 
   <!-- import Vue before Element -->
   <script src="https://cdn.staticfile.org/vue/2.7.0/vue.min.js"></script>
-  <script th:src="@{/js/axios.min.js}"  type="text/javascript" charset="utf-8"></script>
+
   <!-- 引入样式 -->
   <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
   <!-- 引入组件库 -->
@@ -14,118 +14,113 @@
 </head>
 
 <body>
-<div id="app">
-  <el-container style="height: 700px;; border: 1px solid #eee">
-    <el-aside width="200px" style="background-color: rgb(238, 241, 246);">
-      <el-menu :default-openeds="['2']">
-        <!-- 用户主页栏 -->
-        <el-submenu index="0">
-          <template slot="title"><i class="el-icon-s-home"></i><a href="toAdmin">主页</a></template>
-        </el-submenu>
-        <!-- 入侵检测栏 -->
-        <el-submenu index="1">
-          <template slot="title"><i class="el-icon-message"></i>入侵检测</template>
-          <template slot="title"></template>
+  <div id="app">
+    <el-container style="height: 700px;; border: 1px solid #eee">
+      <el-aside width="200px" style="background-color: rgb(238, 241, 246);">
+        <el-menu :default-openeds="['2']">
+          <!-- 用户主页栏 -->
+          <el-submenu index="0">
+            <template slot="title"><i class="el-icon-s-home"></i><a href="toHome_admin">主页</a></template>
+          </el-submenu>
+          <!-- 入侵检测栏 -->
+          <el-submenu index="1">
+            <template slot="title"><i class="el-icon-camera-solid"></i>入侵检测</template>
+            <template slot="title"></template>
 
-          <el-menu-item index="1-1"><a href="toMonitor_admin">实时监控</a></el-menu-item>
-          <el-menu-item index="1-2"><a href="toReplay_admin">入侵回放</a></el-menu-item>
-          <el-menu-item index="1-3"><a href="toRecord_admin">查看记录</a></el-menu-item>
-          <el-menu-item index="1-4"><a href="toStatic_admin">入侵统计</a></el-menu-item>
-        </el-submenu>
-        <!-- 用户管理栏 -->
-        <el-submenu index="2">
-          <template slot="title"><i class="el-icon-menu"></i>用户管理</template>
-          <el-menu-item index="2-1"><a href="toFace">用户人脸注册</a></el-menu-item>
-          <el-menu-item index="2-2"><a href="to_User_info_jurisdiction">用户权限及信息管理</a></el-menu-item>
-        </el-submenu>
-        <!-- 用户白名单栏 -->
-        <el-submenu index="3">
-          <template slot="title"><i class="el-icon-setting"></i><a href="toWhitelist">人员白名单</a></template>
+            <el-menu-item index="1-1"><a href="toMonitor_admin">实时监控</a></el-menu-item>
+            <el-menu-item index="1-2"><a href="toReplay_admin">入侵回放</a></el-menu-item>
+            <el-menu-item index="1-3"><a href="toRecord_admin">查看记录</a></el-menu-item>
+            <el-menu-item index="1-4"><a href="toStatic_admin">入侵统计</a></el-menu-item>
+          </el-submenu>
+          <!-- 用户管理栏 -->
+          <el-submenu index="2">
+            <template slot="title"><i class="el-icon-user-solid"></i>用户管理</template>
+            <el-menu-item index="2-1"><a href="toFace">用户人脸注册</a></el-menu-item>
+            <el-menu-item index="2-2"><a href="to_User_info_jurisdiction">用户权限及信息管理</a></el-menu-item>
+          </el-submenu>
+          <!-- 用户白名单栏 -->
+          <el-submenu index="3">
+            <template slot="title"><i class="el-icon-menu"></i><a href="toWhitelist">人员白名单</a></template>
 
-        </el-submenu>
-      </el-menu>
-    </el-aside>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
 
-    <el-container>
-      <el-header style="text-align: right; font-size: 12px">
-        <el-dropdown>
-          <i class="el-icon-setting" style="margin-right: 15px"></i>
-          <el-dropdown-menu slot="dropdown">
-            <el-dropdown-item>查看</el-dropdown-item>
-            <el-dropdown-item>新增</el-dropdown-item>
-            <el-dropdown-item>删除</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-        <span>123</span>
-      </el-header>
+      <el-container>
+        <el-header style="text-align: right; font-size: 12px">
+          <el-dropdown>
+            <i class="el-icon-setting" style="margin-right: 15px"></i>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>查看</el-dropdown-item>
+              <el-dropdown-item>新增</el-dropdown-item>
+              <el-dropdown-item>删除</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+          <span>123</span>
+        </el-header>
 
-      <el-main style="text-align: center;">
-        <template>
-          <el-table :data="tableData" style="width: 100%">
+        <el-main style="text-align: center;">
+          <template>
+            <el-table :data="tableData" style="width: 100%">
 
-            <el-table-column label="id" width="150" style="text-align: center;">
-              <template slot-scope="scope">
+              <el-table-column label="id" width="150" style="text-align: center;">
+                <template slot-scope="scope">
 
-                <span style="margin-left: 1px; text-align: center;">{{ scope.row.id }}</span>
-              </template>
-            </el-table-column>
+                  <span style="margin-left: 1px; text-align: center;">{{ scope.row.userid }}</span>
+                </template>
+              </el-table-column>
 
-            <el-table-column label="姓名" width="150">
-              <template slot-scope="scope">
-                <el-popover trigger="hover" placement="top">
-                  <p>姓名: {{ scope.row.name }}</p>
-                  <p>住址: {{ scope.row.address }}</p>
-                  <div slot="reference" class="name-wrapper">
-                    <el-tag size="medium" style="margin-left: 1px;">{{ scope.row.name }}</el-tag>
-                  </div>
-                </el-popover>
-              </template>
-            </el-table-column>
-            <el-table-column label="注册日期" width="150">
-              <template slot-scope="scope">
-                <i class="el-icon-time"></i>
-                <span style="margin-left: 1px">{{ scope.row.date }}</span>
-              </template>
-            </el-table-column>
+              <el-table-column label="姓名" width="150">
+                <template slot-scope="scope">
+                  <span style="margin-left: 1px">{{ scope.row.username }}</span>
+                </template>
+              </el-table-column>
 
-            <el-table-column label="邮箱" width="200">
-              <template slot-scope="scope">
+              <el-table-column label="注册日期" width="150">
+                <template slot-scope="scope">
+                  <i class="el-icon-time"></i>
+                  <span style="margin-left: 1px">{{ scope.row.registertime }}</span>
+                </template>
+              </el-table-column>
 
-                <span style="margin-top: 1px">{{ scope.row.email }}</span>
-              </template>
-            </el-table-column>
+              <el-table-column label="邮箱" width="200">
+                <template slot-scope="scope">
 
-            <el-table-column label="性别" width="150">
-              <template slot-scope="scope">
+                  <span style="margin-top: 1px">{{ scope.row.email }}</span>
+                </template>
+              </el-table-column>
 
-                <span style="margin-left: 10px">{{ scope.row.sex }}</span>
-              </template>
-            </el-table-column>
+              <el-table-column label="性别" width="150">
+                <template slot-scope="scope">
 
-            <el-table-column label="权限等级" width="150">
-              <template slot-scope="scope">
+                  <span style="margin-left: 10px">{{ scope.row.sex }}</span>
+                </template>
+              </el-table-column>
 
-                <span style="margin-left: 10px">{{ scope.row.level }}</span>
-              </template>
-            </el-table-column>
+              <el-table-column label="权限等级" width="150">
+                <template slot-scope="scope">
 
-            <el-table-column label="操作">
-              <template slot-scope="scope">
-                <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-                <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-        </template>
+                  <span style="margin-left: 10px">{{ scope.row.rights }}</span>
+                </template>
+              </el-table-column>
 
+              <el-table-column label="操作">
+                <template slot-scope="scope">
+                  <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                  <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
+          </template>
 
-      </el-main>
-      <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: center;">
-      </el-pagination>
+          
+        </el-main>
+        <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: center;">
+          </el-pagination>
+      </el-container>
     </el-container>
-  </el-container>
 
-</div>
+  </div>
 
 
 </body>
@@ -148,146 +143,52 @@
   }
 </style>
 
-<!--<script>-->
-<!--  var customerTableVue = new Vue({-->
-<!--    el: '#app',-->
-<!--    data:{//定义数据-->
-<!--      now_page:1,-->
-<!--      users:[],-->
-<!--      //一些常量-->
-<!--      OK :200,-->
-<!--      pageInfo:[]-->
-<!--    },-->
-<!--    methods:{-->
-<!--      prePage:function (pageNum) {-->
-<!--        if(customerTableVue.pageInfo.isFirstPage){-->
-<!--          return;-->
-<!--        }-->
-<!--        this.listUserSelective(pageNum);-->
-<!--      },-->
-<!--      nextPage:function (pageNum) {-->
-<!--        if(customerTableVue.pageInfo.isLastPage){-->
-<!--          return;-->
-<!--        }-->
-<!--        this.listUserSelective(pageNum);-->
-<!--      },-->
-<!--      listUserSelective:function (pageNum) {-->
-<!--        var username = $("#username_input").val();-->
-<!--        Date registertime = $("#registertime_input").val();-->
-<!--        var email = $("#email_input").val();-->
-<!--        var sex = $("#sex_input").val();-->
-<!--        var rights = $("#rights_input").val();-->
-<!--        axios({-->
-<!--          method: "get",-->
-<!--          url : "user/listUser/"+pageNum.toString(),-->
-<!--          params:{username:username,registertime:registertime,-->
-<!--            email:email,sex:sex,rights:rights}-->
-<!--        }).then(function (value) {-->
-<!--          if(value.data.code === customerTableVue.OK){-->
-<!--            //成功获取到数据渲染表格-->
-<!--            customerTableVue.users = value.data.object.list;-->
-<!--            customerTableVue.pageInfo = value.data.object;-->
-<!--          }else{-->
-<!--            alert("服务器错误,获取数据失败！");-->
-<!--          }-->
-<!--        }).catch();-->
-<!--      }-->
-<!--      // ,-->
-<!--      // deleteUser:function (userId){-->
-<!--      //   var kouling = prompt("请重复用户Id:");-->
-<!--      //   if (kouling==userId){-->
-<!--      //     axios({-->
-<!--      //       method: "post",-->
-<!--      //       url : "user/delete/"+userId.toString()-->
-<!--      //     }).then(function (value) {-->
-<!--      //       if(value.data === customerTableVue.OK){-->
-<!--      //         //成功获取删除给出提示并重新获取用户列表渲染表格-->
-<!--      //         alert("删除成功！");-->
-<!--      //         customerTableVue.listUserSelective(1);-->
-<!--      //       }else{-->
-<!--      //         alert("服务器错误,删除失败！");-->
-<!--      //       }-->
-<!--      //     }).catch();-->
-<!--      //   }else if(kouling !=null) {-->
-<!--      //     alert("id不一致!");-->
-<!--      //   }-->
-<!--      // }-->
-<!--    },-->
-<!--    mounted:function () {-->
-<!--      this.listUserSelective(1);-->
-<!--    }-->
-<!--  });-->
-<!--</script>-->
-
-
 
 <script>
-    var userTableVue =  new Vue({
-        el: '#app',
-        data() {
-            return {
-                tableData: []
-            }
-        },
-        mounted: function() {
-            // this.loadUsers(1);
-            this.listUserSelective(1);
-        },
-        methods: {
-            listUserSelective:function (pageNum) {
-                var userid = this.id;
-                var username = this.name;
-                var registertime = this.date;
-                var email = this.email;
-                var sex = this.sex;
-                var rights = this.level;
-                axios({
-                    method: "get",
-                    url : "user/listUser/"+pageNum.toString(),
-                    params:{
-                        userid:userid,
-                        username:username,
-                        registertime:registertime,
-                        email:email,
-                        sex:sex,
-                        rights:rights}
-                }).then(function (value) {
-                    if(value.data.code === 1){
-                        //成功获取到数据渲染表格
-                        userTableVue.tableData = value.data.object.list;
-                        userTableVue.pageInfo = value.data.object;
-                    }else{
-                        alert("服务器错误,获取数据失败！");
-                    }
-                }).catch();
-            },
-            loadUsers() {
-                var _this = this
-                this.axios.get("user/findAllUsers").then(resp => {
-                    if (resp.data.code === 200) {
-                    console.log(resp)
-                    _this.tableData = resp.data.data;
-                }
-            })
-            },
-            //   loadUsers(pageNum) {
-            //     var _this = this
-            //     this.axios.get("user/listUser/"+pageNum.toString()).then(resp => {
-            //       // if (resp.data.code === 200) {
-            //       console.log(resp)
-            //       _this.tableData = resp.data.object.list;
-            //       // }
-            //     })
-            //   },
-            handleEdit(index, row) {
-                console.log(index, row);
-            },
-            handleDelete(index, row) {
-                console.log(index, row);
-            }
+  new Vue({
+    el: '#app',
+    data() {
+      return {
+        tableData: [{
+          userid: 1,
+          registertime: '2016-05-02',
+          username: '王小虎',
+
+          email: '1479027549@qq.com',
+          sex: '男',
+          rights: 100
+        }]
+      }
+    },
+    methods: {
+      handleEdit(index, row) {
+        console.log(index, row);
+      },
+      async handleDelete (index) {
+        // 弹框询问用户是否删除数据
+        const confirmResult = await this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          })
+        })
+
+
+
+        if (confirmResult !== 'confirm') {
+          return this.$message.info('已取消删除')
+        }else {
+          this.tableData.splice(index,1);
         }
 
-    })
+      },
+    }
+
+  })
 </script>
 
 </html>
