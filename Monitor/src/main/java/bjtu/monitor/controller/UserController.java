@@ -59,5 +59,23 @@ public class UserController {
         return FAIL;
     }
 
+    @GetMapping("/modifyUserInfo")
+    @ResponseBody
+    public int modifyUserInfo(Integer userId, String email,
+                                 String username,String sex) {
+        User newUser = new User();
+        newUser.setEmail(email);
+        newUser.setUsername(username);
+        newUser.setSex(sex);
+        return userService.modifyInfo(userId,newUser);
 
+    }
+
+    @GetMapping("/modifyUserPass")
+    @ResponseBody
+    public int modifyUserPass(Integer userId, String pass) {
+
+        return userService.modifyPassword(userId,pass);
+
+    }
 }
