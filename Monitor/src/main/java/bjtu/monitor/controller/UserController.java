@@ -78,4 +78,13 @@ public class UserController {
         return userService.modifyPassword(userId,pass);
 
     }
+
+    
+    @GetMapping("/modifyUserRights")
+    @ResponseBody
+    public int modifyUserRights(Integer rights,Integer userId) {
+
+        return userService.AssignRights(rights,userId);
+
+    }
 }
