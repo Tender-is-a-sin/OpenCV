@@ -18,7 +18,7 @@ public class InitInstance {
 
 
     //此类加载人脸识别模块
-    public static void init(String dllAbsPath, String facexmlAbsPath, String eyexmlAbsPath) {
+    public static void init(String dllAbsPath, String facexmlAbsPath, String ffmpegPath) {
         logger.info("开始读取脸部识别实例");
         //加载dll文件
         System.load(dllAbsPath);
