@@ -9,6 +9,7 @@ import org.slf4j.*;
 import org.opencv.highgui.*;
 import org.opencv.imgcodecs.*;
 import java.util.Arrays;
+import static org.opencv.videoio.Videoio.CAP_FFMPEG;
 public class InitInstance {
 
     private static Logger logger = LoggerFactory.getLogger(InitInstance.class);
@@ -21,6 +22,7 @@ public class InitInstance {
         logger.info("开始读取脸部识别实例");
         //加载dll文件
         System.load(dllAbsPath);
+        System.load(ffmpegPath);
         faceDetector = new CascadeClassifier(facexmlAbsPath);
         if (faceDetector.empty()) {
             logger.error("人脸识别模块读取失败");
@@ -31,11 +33,12 @@ public class InitInstance {
     //此类实现打开视频，识别人脸
     public static void videoDetectorModel() {
         savePicture savePicture=new savePicture();                
-        //打开摄像头
-        VideoCapture videoCapture = new VideoCapture(0);
-        //判断摄像头是否打开
+        //开始拉流
+        String url="rtmp://124.70.0.166:1935/rtmplive";
+        VideoCapture videoCapture = new VideoCapture(url,CAP_FFMPEG);
+        //判断拉流是否成功
         if (!videoCapture.open(0)) {
-            logger.error("相机打开失败");
+            logger.error("拉流失败");
             return;
         }
 
