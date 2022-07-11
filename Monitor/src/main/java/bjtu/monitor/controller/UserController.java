@@ -79,6 +79,20 @@ public class UserController {
 
     }
 
+    /*
+     *向前端返回用户列表
+     */
+    @GetMapping("/listUser/{pageNum}")
+    @ResponseBody
+    public ReturnObject<PageInfo> listUser(
+                                           @PathVariable("pageNum")Integer pageNum){
+
+        List<User> userList = userService.listUser(pageNum);
+        PageInfo pageInfo = new PageInfo(userList,5);
+        ReturnObject<PageInfo> result = new ReturnObject<>(SUCCESS,pageInfo);
+
+        return result;
+    }
     
     @GetMapping("/modifyUserRights")
     @ResponseBody
