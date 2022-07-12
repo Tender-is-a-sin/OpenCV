@@ -101,4 +101,18 @@ public class UserController {
         return userService.AssignRights(rights,userId);
 
     }
+
+    /*
+     *向前端返回记录列表
+     */
+    @GetMapping("/listRecord/{pageNum}")
+    @ResponseBody
+    public ReturnObject<PageInfo> record(@PathVariable("pageNum")Integer pageNum){
+
+        List<UserFile> fileList = fileService.listFile(pageNum);
+        PageInfo pageInfo = new PageInfo(fileList,5);
+        ReturnObject<PageInfo> result = new ReturnObject<>(SUCCESS,pageInfo);
+
+        return result;
+    }
 }
