@@ -16,7 +16,10 @@ public class SkipController {
     }
 
 
-
+    @GetMapping("/toWs")
+    public String toWs(){
+        return "html/ws";
+    }
 
     @GetMapping("/toRecord")
     public String toRecord(){
