@@ -20,26 +20,27 @@
         <el-menu :default-openeds="['2']">
           <!-- 用户主页栏 -->
           <el-submenu index="0">
-            <template slot="title"><i class="el-icon-s-home"></i><a href="home_admin.html">主页</a></template>
+            <template slot="title"><i class="el-icon-s-home"></i><a href="toHome_admin">主页</a></template>
           </el-submenu>
           <!-- 入侵检测栏 -->
           <el-submenu index="1">
-            <template slot="title"><i class="el-icon-message"></i>入侵检测</template>
+            <template slot="title"><i class="el-icon-camera-solid"></i>入侵检测</template>
             <template slot="title"></template>
-            <el-menu-item index="1-1"><a href="monitor_admin.html">实时监控</a></el-menu-item>
-            <el-menu-item index="1-2"><a href="replay_admin.html">入侵回放</a></el-menu-item>
-            <el-menu-item index="1-3"><a href="record_admin.html">查看记录</a></el-menu-item>
-            <el-menu-item index="1-4"><a href="static_admin.html">入侵统计</a></el-menu-item>
+
+            <el-menu-item index="1-1"><a href="toMonitor_admin">实时监控</a></el-menu-item>
+            <el-menu-item index="1-2"><a href="toReplay_admin">入侵回放</a></el-menu-item>
+            <el-menu-item index="1-3"><a href="toRecord_admin">查看记录</a></el-menu-item>
+            <el-menu-item index="1-4"><a href="toStatic_admin">入侵统计</a></el-menu-item>
           </el-submenu>
           <!-- 用户管理栏 -->
           <el-submenu index="2">
-            <template slot="title"><i class="el-icon-menu"></i>用户管理</template>
-            <el-menu-item index="2-1"><a href="face.html">用户人脸注册</a></el-menu-item>
-            <el-menu-item index="2-2"><a href="user_info_jurisdiction.html">用户权限及信息管理</a></el-menu-item>
+            <template slot="title"><i class="el-icon-user-solid"></i>用户管理</template>
+            <el-menu-item index="2-1"><a href="toFace">用户人脸注册</a></el-menu-item>
+            <el-menu-item index="2-2"><a href="to_User_info_jurisdiction">用户权限及信息管理</a></el-menu-item>
           </el-submenu>
           <!-- 用户白名单栏 -->
           <el-submenu index="3">
-            <template slot="title"><i class="el-icon-setting"></i><a href="whitelist.html">人员白名单</a></template>
+            <template slot="title"><i class="el-icon-menu"></i><a href="toWhitelist">人员白名单</a></template>
 
           </el-submenu>
         </el-menu>
@@ -72,7 +73,7 @@
               <el-table-column label="姓名" width="150">
                 <template slot-scope="scope">
                   <span style="margin-top: 1px">{{ scope.row.name }}</span>
-
+                  
                 </template>
               </el-table-column>
 
@@ -101,27 +102,37 @@
                     </el-button>
                   </el-popover>
 
-                  <el-button size="mini" type="danger" @click="handleUpdate(scope.$index, scope.row)">更新</el-button>
+                  <el-popover placement="bottom" title="入侵截图" width="500" trigger="click">
+
+                    <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/">
+                      <el-button size="small" type="primary">点击上传</el-button>
+                      <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+                    </el-upload>
+
+                    <el-button slot="reference" size="mini" type="danger"
+                               @click="handleUpdate(scope.$index, scope.row)">更新
+                    </el-button>
+                  </el-popover>
+                  <!-- <el-button size="mini" type="danger" @click="handleUpdate(scope.$index, scope.row)">更新</el-button> -->
                 </template>
               </el-table-column>
-
-
-
+            
+    
+              
 
               <el-table-column label="操作">
                 <template slot-scope="scope">
-                  <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
-
+<!--                  <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>-->
                   <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
                 </template>
               </el-table-column>
             </el-table>
           </template>
 
-
+          
         </el-main>
         <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: center;">
-        </el-pagination>
+          </el-pagination>
       </el-container>
     </el-container>
 
@@ -200,9 +211,9 @@
       }
     },
     methods: {
-      handleEdit(index, row) {
-        console.log(index, row);
-      },
+      // handleEdit(index, row) {
+      //   console.log(index, row);
+      // },
       async handleDelete(index) {
         // 弹框询问用户是否删除数据
         const confirmResult = await this.$confirm('此操作将永久删除该记录, 是否继续?', '提示', {
