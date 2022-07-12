@@ -30,7 +30,7 @@
 
     <el-main style="text-align: center;">
       <template>
-        <el-table :data="tableData" style="width: 100%">
+        <el-table :data="tableData.slice((currentPage-1)*pageSize,currentPage*pageSize)" style="width: 100%">
 
           <el-table-column label="id" width="150">
 
@@ -86,13 +86,19 @@
             </template>
           </el-table-column>
         </el-table>
+        <div class="block" style="margin-top:15px;">
+            <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
+                       :current-page="currentPage"
+                       :page-sizes="[1,5,10,20]"
+                       :page-size="pageSize"
+                       layout="total, sizes, prev, pager, next, jumper"
+                       :total="tableData.length">
+                      </el-pagination>
+        </div>
       </template>
 
 
     </el-main>
-    <el-pagination background layout="prev, pager, next" :total="1000" style="text-align: center;">
-    </el-pagination>
-  </el-container>
   </el-container>
 
 </div>
@@ -118,92 +124,33 @@
   }
 </style>
 
-<!--<script>-->
-<!--  var customerTableVue = new Vue({-->
-<!--    el: '#app',-->
-<!--    data:{//定义数据-->
-<!--      now_page:1,-->
-<!--      users:[],-->
-<!--      //一些常量-->
-<!--      OK :200,-->
-<!--      pageInfo:[]-->
-<!--    },-->
-<!--    methods:{-->
-<!--      prePage:function (pageNum) {-->
-<!--        if(customerTableVue.pageInfo.isFirstPage){-->
-<!--          return;-->
-<!--        }-->
-<!--        this.listUserSelective(pageNum);-->
-<!--      },-->
-<!--      nextPage:function (pageNum) {-->
-<!--        if(customerTableVue.pageInfo.isLastPage){-->
-<!--          return;-->
-<!--        }-->
-<!--        this.listUserSelective(pageNum);-->
-<!--      },-->
-<!--      listUserSelective:function (pageNum) {-->
-<!--        var username = $("#username_input").val();-->
-<!--        Date registertime = $("#registertime_input").val();-->
-<!--        var email = $("#email_input").val();-->
-<!--        var sex = $("#sex_input").val();-->
-<!--        var rights = $("#rights_input").val();-->
-<!--        axios({-->
-<!--          method: "get",-->
-<!--          url : "user/listUser/"+pageNum.toString(),-->
-<!--          params:{username:username,registertime:registertime,-->
-<!--            email:email,sex:sex,rights:rights}-->
-<!--        }).then(function (value) {-->
-<!--          if(value.data.code === customerTableVue.OK){-->
-<!--            //成功获取到数据渲染表格-->
-<!--            customerTableVue.users = value.data.object.list;-->
-<!--            customerTableVue.pageInfo = value.data.object;-->
-<!--          }else{-->
-<!--            alert("服务器错误,获取数据失败！");-->
-<!--          }-->
-<!--        }).catch();-->
-<!--      }-->
-<!--      // ,-->
-<!--      // deleteUser:function (userId){-->
-<!--      //   var kouling = prompt("请重复用户Id:");-->
-<!--      //   if (kouling==userId){-->
-<!--      //     axios({-->
-<!--      //       method: "post",-->
-<!--      //       url : "user/delete/"+userId.toString()-->
-<!--      //     }).then(function (value) {-->
-<!--      //       if(value.data === customerTableVue.OK){-->
-<!--      //         //成功获取删除给出提示并重新获取用户列表渲染表格-->
-<!--      //         alert("删除成功！");-->
-<!--      //         customerTableVue.listUserSelective(1);-->
-<!--      //       }else{-->
-<!--      //         alert("服务器错误,删除失败！");-->
-<!--      //       }-->
-<!--      //     }).catch();-->
-<!--      //   }else if(kouling !=null) {-->
-<!--      //     alert("id不一致!");-->
-<!--      //   }-->
-<!--      // }-->
-<!--    },-->
-<!--    mounted:function () {-->
-<!--      this.listUserSelective(1);-->
-<!--    }-->
-<!--  });-->
-<!--</script>-->
-
-
 
 <script>
   var userTableVue =  new Vue({
     el: '#app',
     data() {
       return {
-        tableData: []
+        tableData: [],
+        currentPage: 1, // 当前页码
+        pageSize:5 // 每页的数据条数
       }
     },
     mounted: function() {
-      // this.loadUsers(1);
       this.listUserSelective(1);
     },
     methods: {
+      prePage:function (pageNum) {
+        if(userTableVue.pageInfo.isFirstPage){
+          return;
+        }
+        this.listUserSelective(pageNum);
+      },
+      nextPage:function (pageNum) {
+        if(userTableVue.pageInfo.isLastPage){
+          return;
+        }
+        this.listUserSelective(pageNum);
+      },
       listUserSelective:function (pageNum) {
         var userid = this.userid;
         var username = this.username;
@@ -249,6 +196,7 @@
       //       // }
       //     })
       //   },
+
       handleEdit(index,row) {
         {
           var rights = row.rights
@@ -285,13 +233,22 @@
           })
         })
 
-
-
         if (confirmResult !== 'confirm') {
           return this.$message.info('已取消删除')
         }else {
           this.tableData.splice(index,1);
         }
+      },
+      //每页条数改变时触发 选择一页显示多少行
+      handleSizeChange(val) {
+        console.log(`每页 ${val} 条`);
+        this.currentPage = 1;
+        this.pageSize = val;
+      },
+      //当前页改变时触发 跳转其他页
+      handleCurrentChange(val) {
+        console.log(`当前页: ${val}`);
+        this.currentPage = val;
       }
     }
 
