@@ -1,11 +1,12 @@
 package bjtu.monitor.controller;
 
+import bjtu.monitor.service.MonggoDB;
 import bjtu.monitor.utils.InitInstance;
 import bjtu.monitor.utils.SseEmitterServer;
+import bjtu.monitor.utils.savePicture;
 import org.opencv.core.*;
-import org.opencv.objdetect.CascadeClassifier;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.opencv.imgcodecs.Imgcodecs;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,21 +14,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-
+import static bjtu.monitor.utils.Global.*;
 
 
 @RestController
 @RequestMapping("/sse")
 public class SseEmitterController {
 
-    private static Logger logger = LoggerFactory.getLogger(InitInstance.class);
-    //脸部识别实例
-    private static CascadeClassifier faceDetector;
-
+    @Autowired
+    MonggoDB monggoDB;
     InitInstance initInstance;
 
     Thread t;
-    
+
     @GetMapping("/push/{message}")
     public ResponseEntity<String> push(@PathVariable(name = "message") String message) {
         for (int i = 0; i < 10; i++) {
@@ -44,9 +43,10 @@ public class SseEmitterController {
         t.isInterrupted();
 
     }
-        @GetMapping("/connect/{userId}")
-    public SseEmitter connect(@PathVariable String userId) {
+        @GetMapping("/connect/{userId}/{Id}")
+    public SseEmitter connect(@PathVariable String userId,@PathVariable int Id) {
         SseEmitter  s = SseEmitterServer.connect(userId);
+        System.out.println("---------------"+Id+"----------------------");
         t = new Thread(new Runnable() {
             @Override
             public void run() {
@@ -55,9 +55,12 @@ public class SseEmitterController {
                     while (true){
                         Mat img = initInstance.getMatfromVideo();
                         String tem = initInstance.matToBase64(img);
+                        String path = savepath+savePicture.getTime();
+                        Imgcodecs.imwrite(path,img);
+                        monggoDB.uploadFile(Id,path);
                         SseEmitterServer.sendMessage(userId,tem);
                         try {
-                            Thread.sleep(50);
+                            Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
