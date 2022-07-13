@@ -108,7 +108,7 @@ public class UserServiceImpl implements UserService {
 
         @Override
         public List<User> listUser(int pn) {
-            PageHelper.startPage(pn,5); //每页显示5个数据
+            // PageHelper.startPage(pn,5); //每页显示5个数据
             return userMapper.selectByExample(null);
         }
 
