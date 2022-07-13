@@ -16,10 +16,14 @@ public class savePicture {
     }
 
     public static String getTime(){
-        Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH)+1;
-         String month1 = "";
+        int date = c.get(Calendar.DATE);
+        int hour = c.get(Calendar.HOUR_OF_DAY);
+        int minute = c.get(Calendar.MINUTE);
+        int second = c.get(Calendar.SECOND);
+        String month1 = "";
         String date1 ="";
         if(month<10){
             month1="0"+month;
