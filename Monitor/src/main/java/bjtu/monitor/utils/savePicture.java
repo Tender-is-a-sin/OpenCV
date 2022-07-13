@@ -19,17 +19,19 @@ public class savePicture {
         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH)+1;
-        String month1 = "";
+         String month1 = "";
+        String date1 ="";
         if(month<10){
-           month1="0"+month;
+            month1="0"+month;
         }else {
             month1=""+month;
         }
-        int date = c.get(Calendar.DATE);
-        int hour = c.get(Calendar.HOUR_OF_DAY);
-        int minute = c.get(Calendar.MINUTE);
-        int second = c.get(Calendar.SECOND);
-        String savedate=year+"-"+month1+"-"+date+"-"+hour+"-"+".png";
+        if(date<10){
+            date1="0"+month;
+        }else {
+            date1=""+month;
+        }
+        String savedate=year+"-"+month1+"-"+date1+"-"+hour+"-"+minute+".png";
         return savedate;
     }
 
