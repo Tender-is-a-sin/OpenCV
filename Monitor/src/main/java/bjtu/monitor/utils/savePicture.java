@@ -29,7 +29,7 @@ public class savePicture {
         int hour = c.get(Calendar.HOUR_OF_DAY);
         int minute = c.get(Calendar.MINUTE);
         int second = c.get(Calendar.SECOND);
-        String savedate=year+"-"+month1+"-"+date+"-"+hour+"-"+minute+".png";
+        String savedate=year+"-"+month1+"-"+date+"-"+hour+"-"+".png";
         return savedate;
     }
 
