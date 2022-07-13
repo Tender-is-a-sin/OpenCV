@@ -48,7 +48,7 @@ public class MongonDBImpl implements MonggoDB {
             userFile.setFileid(id.toString());
             userFile.setUserid(userid);
             userFile.setFiledate(new Date());
-            userFile.setFilename("/intrusion/"+file.getName());
+            userFile.setFilename(file.getName());
             userFileMapper.insert(userFile);
             return id.toString();
         } catch (FileNotFoundException e) {
