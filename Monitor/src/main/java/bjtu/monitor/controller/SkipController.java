@@ -1,10 +1,15 @@
-package bjtu.monitor.controller;
+package bjtu.monitor.
+        controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class SkipController {
+
     @GetMapping("/toLog")
     public String toLog(){
         return "html/Login";
@@ -15,11 +20,13 @@ public class SkipController {
         return "html/Register";
     }
 
-
-    @GetMapping("/toWs")
-    public String toWs(){
+    @GetMapping("/toWs/{userId}")
+    public String toWs(@PathVariable("userId")Integer userId, HttpSession session){
+        session.setAttribute("Id",userId);
+//        session.getAttribute("nowUser");
         return "html/ws";
     }
+
 
     @GetMapping("/toRecord")
     public String toRecord(){
