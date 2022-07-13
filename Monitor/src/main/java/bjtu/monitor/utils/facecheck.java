@@ -10,23 +10,34 @@ import static bjtu.monitor.utils.Global.facexmlAbsPath;
 
 public class facecheck {
     private  boolean  flag=false;
+    private  Mat[] hists;
     private static int facenumber=3;
+    //参数定义
+    private static MatOfFloat ranges = new MatOfFloat(0f, 256f);
+    private static MatOfInt histSize = new MatOfInt(10000000);
+    public void setFacenumber(int num){
+        this.facenumber=num;
+    }
+    public void initFaceCheck(int num,String facePath){
 
-
-    private void faceplus(){
-        facenumber++;
+        setFacenumber(num);
+        hists=new Mat[num];
+        for(int i=0;i<facenumber;i++){
+            Mat temp=conv_Mat(facePath +i+".png");
+            hists[i]=new Mat();
+            Imgproc.calcHist(Arrays.asList(temp), new MatOfInt(0), new Mat(), hists[i], histSize, ranges);
+        }
     }
 
-    private void faceminus(){ facenumber--; }
-
-    public  boolean facecheck(Mat imgcompare){
+    public  boolean faceCheck(Mat imgcompare){
         for(int i=0;i<facenumber;i++)
         {
-            double res=compare_image(imgcompare,adminface+i+".png");
+            double res=compare_image(imgcompare,hists[i]);
             if(res>0.7){
+                //System.out.println(res);
                 flag=true;
                 return flag;
-            }
+            }//else System.out.println(res);
         }
 
         return flag;
@@ -50,20 +61,18 @@ public class facecheck {
         return null;
     }
 
-    public static double compare_image(Mat mat_1, String img_2) {
+    public static double compare_image(Mat mat, Mat hist) {
         //获得灰度人脸
 //      Mat mat_1 = conv_Mat(img_1);
-        Mat mat_2 = conv_Mat(img_2);
-        Mat hist_1 = new Mat();
-        Mat hist_2 = new Mat();
-        //参数定义
-        MatOfFloat ranges = new MatOfFloat(0f, 256f);
-        MatOfInt histSize = new MatOfInt(10000000);
+//      Mat mat_2 = conv_Mat(img_2);
+//      Mat hist_1 = new Mat();
+        Mat temp = new Mat();
+
         //实现图片计算
-        Imgproc.calcHist(Arrays.asList(mat_1), new MatOfInt(0), new Mat(), hist_1, histSize, ranges);
-        Imgproc.calcHist(Arrays.asList(mat_2), new MatOfInt(0), new Mat(), hist_2, histSize, ranges);
+        Imgproc.calcHist(Arrays.asList(mat), new MatOfInt(0), new Mat(), temp, histSize, ranges);
+//      Imgproc.calcHist(Arrays.asList(mat_2), new MatOfInt(0), new Mat(), hist_2, histSize, ranges);
         // 相关系数，获得相似度
-        double res = Imgproc.compareHist(hist_1, hist_2, Imgproc.CV_COMP_CORREL);
+        double res = Imgproc.compareHist(temp, hist, Imgproc.CV_COMP_CORREL);
         //返回相似度
         return res;
     }
