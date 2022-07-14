@@ -45,6 +45,6 @@ public interface UserService {
     boolean ifExistUser(String username); //
     boolean ifExistUser(Integer id); //
     int deleteUser(Integer userID);
-
+    Week getUserFile(int id);   
 
 }
