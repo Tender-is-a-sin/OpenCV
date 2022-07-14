@@ -56,6 +56,49 @@ public class PictureController {
         }
         return result;
     }
+
+
+    @GetMapping("/recordPicture")
+    @ResponseBody
+    public String modifyPicture(String name) {
+        //  static\\intrusion填绝对路径
+        String paths = "F:\\video-detection-system-master (2)\\video-detection-system-master\\Monitor\\src\\main\\resources\\static\\intrusion";
+        String result="new String()";
+        File file = new File(paths);
+//        System.out.println("warning"+name);
+        // 获得该文件夹内的所有文件
+        File[] array = file.listFiles();
+        for(int i=0;i<array.length;i++)
+        {
+            if(array[i].getName().compareTo(name)==0){
+                result= "data:image/png;base64," +pictureService.toBase64(array[i].getPath());
+//                System.out.println(array[i].getName());
+            }
+        }
+        return result;
+    }
+
+    @GetMapping("/whitePicture")
+    @ResponseBody
+    public String whitePicture(String name) {
+        //  static\\intrusion填绝对路径
+        String paths = "F:\\video-detection-system-master (2)\\video-detection-system-master\\Monitor\\src\\main\\resources\\static\\face";
+        String result="new String()";
+        File file = new File(paths);
+//        System.out.println("warning"+name);
+        // 获得该文件夹内的所有文件
+        File[] array = file.listFiles();
+        for(int i=0;i<array.length;i++)
+        {
+            if(array[i].getName().compareTo(name)==0){
+                result= "data:image/png;base64," +pictureService.toBase64(array[i].getPath());
+                System.out.println(array[i].getName());
+            }
+        }
+        return result;
+    }
+
+
 //    public void getBase64(HttpServletRequest request, HttpServletResponse response) {
 //        //调用doGet方法会抛出异常,捕获一下
 //        try {
