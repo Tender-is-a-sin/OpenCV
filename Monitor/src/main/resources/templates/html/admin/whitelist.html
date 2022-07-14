@@ -153,7 +153,7 @@
         el: '#app',
         data() {
             return {
-                src: 'https://cube.elemecdn.com/6/94/4d3ea53c084bad6931a56d5158a48jpeg.jpeg',
+                src: '',
 
                 currentPage: 1, // 当前页码
                 total: 20, // 总条数
@@ -213,8 +213,18 @@
         }).catch();
     },
     handleCheck(index, row) {
-        whiteTableVue.src="/face/"+row.username+".jpg";
-        console.log(index, row);
+      var name=row.userid+".png";
+      axios({
+        method: "get",
+        url: "picture/whitePicture",
+        params: {
+          name: name,
+        }
+      }).then(function (value) {
+        whiteTableVue.src=value.data;
+        // alert(recordTableVue.src);
+      }).catch()
+      console.log(index, row);
     },
     handleUpdate(index, row) {
         console.log(index, row);
