@@ -16,7 +16,7 @@ public class savePicture {
     }
 
     public static String getTime(){
-         Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+        Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
         int year = c.get(Calendar.YEAR);
         int month = c.get(Calendar.MONTH)+1;
         int date = c.get(Calendar.DATE);
@@ -31,11 +31,11 @@ public class savePicture {
             month1=""+month;
         }
         if(date<10){
-            date1="0"+month;
+            date1="0"+date;
         }else {
-            date1=""+month;
+            date1=""+date;
         }
-        String savedate=year+"-"+month1+"-"+date1+"-"+hour+"-"+minute+".png";
+        String savedate=year+"-"+month1+"-"+date1+"-"+hour+"-"+minute+".jpg";
         return savedate;
     }
 
