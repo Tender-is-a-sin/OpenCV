@@ -174,7 +174,29 @@ public class UserServiceImpl implements UserService {
             return userMapper.deleteByPrimaryKey(userID);
         }
 
-
+@SuppressWarnings("deprecation")
+    @Override
+    public Week getUserFile(int id) {
+        UserFileExample userFileExample = new UserFileExample();
+        userFileExample.createCriteria().andUseridEqualTo(id);
+        List<UserFile> userFiles = userFileMapper.selectByExample(userFileExample);
+        Calendar c = Calendar.getInstance();//可以对每个时间域单独修改
+        Week week = new Week();
+        for(int i=0;i<userFiles.size();i++){
+            Date t = userFiles.get(i).getFiledate();
+            switch (c.get(Calendar.DATE)-t.getDate()){
+                case 0:week.tod++;break;
+                case 1:week.mon++;break;
+                case 2:week.tes++;break;
+                case 3:week.wes++;break;
+                case 4:week.ths++;break;
+                case 5:week.fri++;break;
+                case 6:week.sat++;break;
+                case 7:week.sun++;break;
+            }
+        }
+        return week;
+    }
 
     }
 
