@@ -22,7 +22,7 @@
 
                 <!-- 用户主页栏 -->
                 <el-submenu index="0">
-                    <template slot="title"><i class="el-icon-s-home"></i><a href="toHome_admin">主页</a></template>
+                    <template slot="title"><i class="el-icon-s-home"></i><a href="/toAdmin">主页</a></template>
                 </el-submenu>
                 <!-- 入侵检测栏 -->
                 <el-submenu index="1">
@@ -168,13 +168,21 @@
     var myChart = echarts.init(document.getElementById('main'));
 
     // 指定图表的配置项和数据
+    var to = [[${session.week.tod}]]
+    var d1 = [[${session.week.mon}]]
+    var d2 = [[${session.week.tes}]]
+    var d3 = [[${session.week.wes}]]
+    var d4 = [[${session.week.ths}]]
+    var d5 = [[${session.week.fri}]]
+    var d6 = [[${session.week.sat}]]
+    var d7 = [[${session.week.sun}]]
     var option = {
         title: {
-            text: '总合同分布'
+            text: '近七天入侵统计'
         },
         tooltip: {},
         legend: {
-            data:['待处理'],
+            data:['入侵次数'],
             top: 400,
             bottom: 20,
             right: 0
@@ -187,13 +195,13 @@
             height: 300
         },
         xAxis: {
-            data: ["待分配","会签","定稿","审批","签订","已完成"]
+            data: ["今天","1","2","3","4","5","6","7"]
         },
         yAxis: {},
         series: [{
             name: '数量',
             type: 'bar',
-            data: [10,15,13,26,7,0]
+            data: [to,d1,d2,d3,d4,d5,d6,d7]
         }]
     };
 
